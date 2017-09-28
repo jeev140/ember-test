@@ -74,7 +74,6 @@ export default function() {
 
   // Find and return the provided rental from our rental list above
   this.get('/login', function(db, request) {
-    console.log(request.queryParams);
      if (request.queryParams.username !== undefined || request.queryParams.password !== undefined) {
       let filteredRentals = users.filter(function(i) {
         return i.attributes.username.toLowerCase().indexOf(request.queryParams.username.toLowerCase()) !== -1 && 

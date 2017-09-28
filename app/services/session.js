@@ -28,7 +28,7 @@ export default Ember.Service.extend({
         localStorage.sessionEnable = true;
         controller.transitionToRoute("index");
       }  
-    }, function(xhr, status, error) {
+    }, function() {
       controller.set('message', 'Enter valid username or password');
     });
   },
