@@ -1,0 +1,7 @@
+<p>Enter username and password</p>
+{{#if message}}
+  <p>{{message}}</p>
+{{/if}}
+{{input name="username" value=userName placeholder="User Namssse"}}
+{{input name="password" value=password placeholder="Password"}}
+<button {{action "login"}}>Login</button>
