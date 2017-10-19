@@ -14,8 +14,9 @@ export default Ember.Route.extend({
   actions: {
     login() {
       const loginController = this.controllerFor('login');
+      const applicationController = this.controllerFor('application');
       this.get('session').login(loginController.get('userName'),
-        loginController.get('password'), loginController);
+        loginController.get('password'), loginController, applicationController);
     }
   }
 });

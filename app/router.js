@@ -13,7 +13,9 @@ Router.map(function() {
   this.route('login');
   this.route('rentals', function() {
     this.route('show', { path: ':rental_id' });
+    this.route('addrental');
   });
+  this.route('accessdenied');
 });
 
 export default Router;

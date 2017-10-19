@@ -4,7 +4,7 @@ const { isEmpty, $ } = Ember;
 export default Ember.Service.extend({
   sessionEnable: false,
 
-  login(username, password, controller) {
+  login(username, password, controller, applicationController) {
     if(!username) {
       controller.set('message', 'Enter username');
       return;
@@ -26,6 +26,7 @@ export default Ember.Service.extend({
         controller.set('message', 'Enter valid username or password');
       } else {
         localStorage.sessionEnable = true;
+        applicationController.set('isSessionEnable', true);
         controller.transitionToRoute("index");
       }  
     }, function() {
@@ -33,8 +34,9 @@ export default Ember.Service.extend({
     });
   },
 
-  logout(controller) {
+  logout(loginController, applicationController) {
     localStorage.removeItem("sessionEnable");
-    controller.transitionToRoute("login");
+    applicationController.set('isSessionEnable', false);
+    loginController.transitionToRoute("login");
   }
 });

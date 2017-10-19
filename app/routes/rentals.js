@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   session: Ember.inject.service('session'),
   actions: {
     logout() {
-      this.get('session').logout(this.controllerFor('login'));
+      this.get('session').logout(this.controllerFor('login'), this.controllerFor('application'));
     }
   }
 });

@@ -84,4 +84,10 @@ export default function() {
       return { data: {msg: "Enter username or password"} };
     }
   });
+
+  this.post('/rentals', function(db, request) {
+    const data = JSON.parse(request.requestBody).data;
+    rentals.push(data);
+    return {data};
+  });
 }
